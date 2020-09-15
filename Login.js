@@ -25,16 +25,34 @@ loginForm.addEventListener('submit', (e) => {
 
   const auth = firebase.auth();
   auth.signInWithEmailAndPassword(email, password).then(cred => {
-    console.log(cred.user);
+    //console.log(cred.user);
     window.location = "home.html";
-  });
+  }).catch(err => {
+    window.alert(err.message);
+    loginForm.reset();
 
 });
+});
+
+/*
+auth.createUserWithEmailAndPassword(email, password).then(cred => {
+    //console.log(user);
+    window.alert('Thank you! your response has been recorded')
+    signupForm.reset();
+  }).catch(err => {
+  window.alert(err.message);
+  signupForm.reset();
+});
+});
+
+*/ 
+
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-    console.log('user logged in: ', user);
-    console.log(firebase.auth().currentUser.email);
+    //console.log('user logged in: ', user);
+    //console.log(firebase.auth().currentUser.email);
+    //window.alert('Successfully logged in!')
     }
     });
 

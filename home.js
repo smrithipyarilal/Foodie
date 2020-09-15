@@ -19,8 +19,9 @@ var firebaseConfig = {
 
 auth.onAuthStateChanged(user => {
 if (user) {
-console.log('user logged in: ', user);
-console.log(firebase.auth().currentUser.email);
+//console.log('user logged in: ', user);
+//console.log(firebase.auth().currentUser.email);
+window.alert('Successfully logged in!')
 }
 });
 

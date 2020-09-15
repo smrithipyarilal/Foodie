@@ -18,16 +18,21 @@ signupForm.addEventListener('submit', (e) => {
   // get user info
   const email = signupForm['email'].value;
   const password = signupForm['password'].value;
-  console.log(email);
-  console.log(password);
+  //console.log(email);
+  //console.log(password);
 
   const auth = firebase.auth();
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
-    console.log(cred.user);
-
-  });
-
+    //console.log(user);
+    window.alert('Thank you! your response has been recorded')
+    signupForm.reset();
+  }).catch(err => {
+  window.alert(err.message);
+  signupForm.reset();
 });
+});
+
+
 
 
 
